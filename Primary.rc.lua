@@ -1,3 +1,9 @@
+# if you're playing on CPO, remove these two includes, and un-comment the other two includes
+  include += RumpyForceMore.rc
+  include += RumpyColors.rc
+# include += zxcForceMores.rc
+# include += HDAColors.rc
+
   automagic_enable	= true
   automagic_stop 	= 20
   mp_warning 		= 15

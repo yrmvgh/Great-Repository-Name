@@ -3,11 +3,16 @@ automagic_slot = Q
 tile_key_repeat_delay = 1200
 
 bindkey = [;] CMD_AUTOFIGHT_NOMOVE 
+# the following 3 bindkeys help with turncount, by attempting to breadswing instead of resting
+# comment them out or delete them if you don't want that behaviour
 bindkey = [\{-247}] ===one_turn_rest
 bindkey = [.] ===one_turn_rest
-bindkey = [5] ===
+bindkey = [5] ===start_resting
 
 flash_screen_message += distortion
+: if you.race() == "Formicid" then
+	flash_screen_message += poison
+: end
 
 explore_delay = 3
 explore_greedy = true
@@ -19,7 +24,7 @@ rest_wait_both = true
 rest_wait_percent = 95
 runrest_ignore_poison = 2:10
 runrest_ignore_monster ^= butterfly:1
-runrest_ignore_monster ^= rat:2
+runrest_ignore_monster ^= rat:3
 auto_sacrifice = true
 
 equip_unequip = true
@@ -31,9 +36,15 @@ messages_at_top = true
 msg_max_height = 14
 msg_min_height = 8
 
-sort_menus = true : >identified, art, qty, basename, qualname, curse
+sort_menus = true : charged, >identified, art, qty, basename, qualname, curse
+drop_filter += useless_item
 default_show_all_skills = true
 tile_menu_icons = false
+ability_menu = true
+default_manual_training = true
+
+hp_colour       = 100:green, 75:yellow, 50:red, 25:lightred
+mp_colour       = 100:green, 75:yellow, 50:red, 25:lightred
 
 fire_order  = launcher, return
 fire_order += tomahawk / javelin / stone / rock / net
@@ -288,6 +299,7 @@ fake_lang =
     target_skill()
     load_message()
     speedrun_rest()
+    char_dump()
   end
 } {
 -----------------------------
@@ -1000,6 +1012,26 @@ reset_rest()
 ---------------------------
 ---- End speedrun_rest ----
 ---------------------------
+} {
+-------------------------
+---- Begin char_dump ----
+-------------------------
+
+-- See README.md for documentation.
+
+local dump_count = you.turns()
+local dump_period = 1000
+
+function char_dump()
+    if you.turns() >= dump_count then
+        dump_count = dump_count + dump_period
+        crawl.dump_char()
+    end
+end
+
+-----------------------
+---- End char_dump ----
+-----------------------
 }
 ##### Crawl Init file ###############################################
 # For descriptions of all options, as well as some more in-depth information

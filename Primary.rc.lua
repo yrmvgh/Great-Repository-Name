@@ -265,17 +265,17 @@ note_monsters += killer klown,electric golem,death cob,curse toe,orb of fire
 ##### Fake Language ########################################################
 
 : if (you.god() == "Trog") then
-: if (you.race() == "Troll" or you.race() == "Ogre") then
+: if (you.race() == "Cave Troll" or you.race() == "Orc" or you.race() == "Ogre") then
 fake_lang = wide,grunt
 : elseif (you.race() == "Deep Dwarf") then
 fake_lang = dwarven,grunt
 : else
 fake_lang = grunt
 : end
-#: elseif (you.race() == "Mummy") then
-#fake_lang = runes
-#: elseif (you.race() == "Vampire") then
-#fake_lang = jagerkin,kraut
+: elseif (you.race() == "Mummy" or you.race() == "Moon Troll") then
+fake_lang = runes
+: elseif (you.race() == "Vampire" or you.race() == "Demonspawn") then
+fake_lang = jagerkin,kraut
 : else
 fake_lang = 
 : end
@@ -291,9 +291,9 @@ fake_lang =
 #fake_lang = kraut,jagerkin,dwarven
 #fake_lang = jagerkin,dwarven,kraut
 
-##############################
+##https://github.com/gammafunk/dcss-rc/blob/master/README.md###
 ## Lua and ready() function ##
-##############################
+##https://github.com/gammafunk/dcss-rc/blob/master/README.md## 
 {
   function ready()
     target_skill()
@@ -305,7 +305,7 @@ fake_lang =
 ---- Begin target_skill ----
 -----------------------------
 
--- See README.md for documentation.
+-- See https://github.com/gammafunk/dcss-rc/blob/master/README.md for documentation.
 
 skill_list = {"Fighting","Short Blades","Long Blades","Axes","Maces & Flails",
               "Polearms","Staves","Unarmed Combat","Bows","Crossbows",

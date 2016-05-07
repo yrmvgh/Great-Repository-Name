@@ -1,11 +1,19 @@
-automagic_enable = true
-automagic_slot = Q
+   automagic_enable 	= true
+   automagic_stop 	= 20
+   mp_warning 		= 15
+   automagic_slot 	= Q
+   autofight_throw	= true
+# the ingenious plan: instead of setting autofight_stop to a high value, let's have
+# a "warning" at 60 and then you can keep tabbing to death, or at least to 40% hp
+   hp_warning 		= 60
+   autofight_stop 	= 40
+
+
 tile_key_repeat_delay = 1200
 
 bindkey = [;] CMD_AUTOFIGHT_NOMOVE 
-# the following 3 bindkeys help with turncount, by attempting to breadswing instead of resting
+# the following bindkeys help with turncount, by attempting to breadswing instead of resting
 # comment them out or delete them if you don't want that behaviour
-bindkey = [\{-247}] ===one_turn_rest
 bindkey = [.] ===one_turn_rest
 bindkey = [5] ===start_resting
 
@@ -14,37 +22,44 @@ flash_screen_message += distortion
 	flash_screen_message += poison
 : end
 
-explore_delay = 3
-explore_greedy = true
-explore_stop = shops,altars,portals,branches,runed_doors
-explore_stop += greedy_pickup_smart,greedy_visited_item_stack
-explore_wall_bias = 2
-explore_auto_rest = true
-rest_wait_both = true
-rest_wait_percent = 95
-runrest_ignore_poison = 2:10
+explore_delay 		= 1
+explore_greedy 		= true
+explore_stop 		= shops,altars,portals,branches,runed_doors
+explore_stop 	       += greedy_pickup_smart,greedy_visited_item_stack
+explore_wall_bias 	= 2
+explore_auto_rest 	= true
+rest_wait_both 		= true
+rest_wait_percent 	= 96
+runrest_ignore_poison 	= 2:10
 runrest_ignore_monster ^= butterfly:1
 runrest_ignore_monster ^= rat:3
-auto_sacrifice = true
+auto_sacrifice 		= true
+show_travel_trail	= true
+message_colour         += mute:you're not good enough to have a special ability
+message_colour 	       += mute:@corpse
 
-equip_unequip = true
-easy_confirm = all
-allow_self_target = prompt
+equip_unequip 		= true
+easy_confirm 		= all
+allow_self_target 	= prompt
 
-show_more = false
-messages_at_top = true
-msg_max_height = 14
-msg_min_height = 8
+show_more 		= false
+show_gold_turn		= true
+show_game_turns 	= true
+default_manual_training = true
+view_delay 		= 600
 
-sort_menus = true : charged, >identified, >equipped, art, qty, basename, qualname, curse
-drop_filter += useless_item
+sort_menus 		= true : charged, >identified, >equipped, art, qty, basename, qualname, curse
+drop_filter  	       ^= useless, forbidden, dangerous
 default_show_all_skills = true
-tile_menu_icons = false
-ability_menu = true
+tile_menu_icons 	= false
+ability_menu 		= true
 default_manual_training = true
 
 hp_colour       = 100:green, 75:yellow, 50:red, 25:lightred
 mp_colour       = 100:green, 75:yellow, 50:red, 25:lightred
+: if you.race() == "Lava Orc" then
+temp_colour	= 100:red, 94:lightred, 86:yellow, 59:brown, 32:darkgrey
+: end
 
 fire_order  = launcher, return
 fire_order += tomahawk / javelin / stone / rock / net
@@ -54,7 +69,7 @@ fire_order += tomahawk / javelin / stone / rock / net
 ########################
 
 ## Add staves and rods; note you can't use += with this option.
-autopickup = $?!+"/%|\
+autopickup = $?!+"/%|\}(
 
 ae := autopickup_exceptions
 ## Don't ever need a second stave
@@ -69,7 +84,7 @@ ae += <artefact
 add_autopickup_func(function(it, name)
 
   if name:find("curare") then return true end
-  if name:find("dispersal") and (name:find("dart") or name:find("tomahawk")) then return true end
+  if name:find("dispersal") then return true end
   if name:find("throwing net") then return true end
  
   local class = it.class(true)
@@ -180,30 +195,35 @@ end)
 }
 
 ####################
-### Autoinscribe ###
+# Autoinscriptions #
 ####################
 
 ai := autoinscribe
 
+ai += (vampiric):!w
 ai += (bad|dangerous)_item.*potion:!q
 ai += (bad|dangerous)_item.*scroll:!r
-ai += potion.*(berserk rage):!q
-ai += potion.*(cure mutation):!q
-ai += scroll.*blinking:!r
-ai += scroll.*(magic mapping):!r
-ai += scroll.*recharging:!r
-
 ai += of faith:!P
-ai += ( rod ):!a
-ai += manual of:!d
-ai += staff of (Wucad Mu|channeling|wizardry|conjuration|summoning):!a
-ai += staff of air:rElec
-ai += staff of cold:rC+
-ai += staff of death:rN+
-ai += staff of energy:+MP, hungerless spells, !a
-ai += staff of fire:rF+
-ai += staff of poison:rPois
-ai += staff of power:MP+17, !a
+ai += rod of:!a
+ai += lightning rod:!a
+ai += [^r]staff of (conj|energy|power|wizardry|Wucad Mu):!a
+ai += dispersal:!f
+ai += throwing net:!f
+
+: if you.god() ~= "Lugonu" then
+ai += (distortion):!w
+:end
+
+ai += of identify:@r1
+ai += remove curse:@r2
+ai += curing:@q1
+ai += potions? of heal wounds:@q2
+ai += wand of heal wounds:@v2
+ai += wand of hasting:@v3
+ai += potions? of haste:@q3
+ai += scrolls? of teleportation:@r4
+ai += wand of teleportation:@v4
+ai += potions? of blood:@q0
 
 ## from simm's rc
 ai += curing:@q1
@@ -245,19 +265,23 @@ show_god_gift = unident
 # Notes #
 #########
 
+dump_item_origins = all
+dump_message_count = 50
+dump_book_spells = false
+dump_order =
+dump_order += header,hiscore,stats,misc,mutations,skills,spells,overview
+dump_order += inventory,screenshot,monlist,messages
+dump_order += vaults,kills,turns_by_place,kills_by_place,notes,action_counts
+ood_interesting = 6
+note_hp_percent = 25
+note_all_skill_levels = true
 note_items    += acquirement, of Zot
 note_messages += You pass through the gate
 note_messages += cast .* Abyss
 note_messages += Your scales start
-note_messages += protects you from harm
-note_messages += You fall through a shaft
-## Nasty undead from Vaults and Tomb
-note_monster  += lich,ancient lich,curse skull,greater mummy
-## Some enemies it's good to note for Vaults:5
+note_monsters += lich,ancient lich,curse skull,greater mummy
 note_monsters += tengu reaver,storm dragon,titan
-## Depths
 note_monsters += octopode crusher,juggernaut,caustic shrike
-## Zot
 note_monsters += killer klown,electric golem,death cob,curse toe,orb of fire
 
 ##### Fake Language ########################################################
@@ -298,8 +322,9 @@ fake_lang =
     load_message()
     speedrun_rest()
     char_dump()
+    
   end
-} 
+}
 {
 -----------------------------
 ---- Begin target_skill ----

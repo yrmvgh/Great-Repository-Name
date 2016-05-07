@@ -3,7 +3,7 @@
   mp_warning 		= 15
   automagic_slot 	= Q
   autofight_throw	= true
-# the ingenious plan: instead of setting autofight_stop to a high value, let's have
+# the ingenious plan: instead of setting autofight_stop to a high value, lets have
 # a "warning" at 60 and then you can keep tabbing to death, or at least to 40% hp
   hp_warning 		= 60
   autofight_stop 	= 40

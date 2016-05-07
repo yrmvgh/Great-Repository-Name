@@ -12,7 +12,7 @@ tile_key_repeat_delay = 1500
 
 bindkey = [;] CMD_AUTOFIGHT_NOMOVE 
 # the following bindkeys help with turncount, by attempting to breadswing instead of resting
-# comment them out or delete them if you don't want that behaviour
+# comment them out or delete them if you dont want that behaviour
 bindkey = [.] ===one_turn_rest
 bindkey = [5] ===start_resting
 

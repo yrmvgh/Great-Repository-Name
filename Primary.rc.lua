@@ -262,78 +262,6 @@ note_monsters += octopode crusher,juggernaut,caustic shrike
 ## Zot
 note_monsters += killer klown,electric golem,death cob,curse toe,orb of fire
 
-#####################
-### More messages ###
-#####################
-
-more := force_more_message
-
-# Important features
-: if you.god() == "Ashenzari" then
-more += You have a vision of.*gates?
-: else
-more += interdimensional caravan
-more += distant snort
-more += Found a gateway leading out of the Abyss
-: end
-more += Found .* abyssal rune of Zot
-more += You feel a terrible weight on your shoulders
-
-# Interrupts
-more += You don't.* that spell
-more += You fail to use your ability
-more += You miscast
-more += You can't (read|drink|do) that
-more += That item cannot be evoked
-more += This wand has no charges
-more += You are held in a net
-more += You don't have any such object
-more += do not work when you're silenced
-more += You can't unwield
-more += enough magic points
-more += You feel your control is inadequate
-
-# Bad things
-more += Your surroundings flicker
-more += sense of stasis
-more += You cannot teleport right now
-more += The writing blurs in front of your eyes
-more += You fall through a shaft
-more += (blundered into a|invokes the power of) Zot
-more += Ouch! That really hurt!
-more += dispelling energy hits you
-more += You convulse
-more += You are (blasted|electrocuted)!
-more += You are (more )?confused
-more += You are (more |lethally )?poisoned
-more += wrath finds you
-more += lose consciousness
-more += Space warps horribly around you
-more += hits you.*distortion
-more += Space bends around you\.
-more += watched by something
-more += The dungeon rumbles around
-more += The air twists around and violently strikes you in flight
-
-# Expiring effects
-more += You feel yourself slow down
-more += You are starting to lose your buoyancy
-more += Your hearing returns
-more -= Your transformation is almost over
-more += You feel yourself come back to life
-more += uncertain
-
-# Others
-more += You have reached level
-more += You have finished your manual of
-more += Deactivating autopickup
-
-## Problematic monsters
-more += (giant eyeball|shining eye|cacodemon|neqoxec|guardian serpent|flayed ghost|greater mummy|mummy priest|hell sentinel|fiend|tormentor|hellion|lich|executioner|orb of fire|death cob|juggernaut|moth of wrath|ghost moth|curse toe|curse skull|draconian shifter).*into view
-
-## Uniques
-more += (Agnes|Aizul|Antaeus|Asmodeus|Asterion|Azrael|Blork the orc|Boris|Cerebov|Crazy Yiuf|Dispater|Dissolution|Donald|Dowan|Duvessa|Edmund|the Enchantress|Ereshkigal|Erica|Erolcha|Eustachio|Fannar|Frances|Frederick|Gastronok|Geryon|Gloorx Vloq|Grinder|Grum|Harold|Ignacio|Ijyb|Ilsuiw|Jessica|Jorgrun|Jory|Joseph|Josephine|Khufu|Kirke|Lamia|the Lernaean hydra|Lom Lobon|Louise|Mara|Margery|Maud|Maurice|Menkaure|Mennas|Mnoleg|Murray|Natasha|Nergalle|Nessos|Nikola|Norris|Pikel|Plog|Polyphemus|Prince Ribbit|Psyche|Purgy|Robin|Roxanne|the royal jelly|Rupert|Saint Roka|the Serpent of Hell|Sigmund|Snorg|Sonja|Terence|Tiamat|Urug|Vashnia|Wiglaf|Xtahua).*into view
-
 ##### Fake Language ########################################################
 
 : if (you.god() == "Trog") then
@@ -374,7 +302,7 @@ fake_lang =
   end
 } {
 -----------------------------
----- Beging target_skill ----
+---- Begin target_skill ----
 -----------------------------
 
 -- See README.md for documentation.

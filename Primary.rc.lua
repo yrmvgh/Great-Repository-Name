@@ -3,7 +3,7 @@
 # food-related functions that behave strangely in our fork. Suggestions welcome!
 # Some parts of this were copied from gammafunk and zxc. Thanks, you two!
 
-# if you playing on CPO, remove these two includes, and un-comment the other two includes
+# if playing on CPO, remove these two includes, and un-comment the other two includes
   include += RumpyForceMore.rc
   include += RumpyColors.rc
 # include += zxcForceMores.rc

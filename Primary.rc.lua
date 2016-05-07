@@ -18,7 +18,7 @@
 # a "warning" at 60 and then you can keep tabbing to death, or at least to 40% hp
   hp_warning 		= 60
   autofight_stop 	= 40
-  danger_mode_threshold	= 30
+  danger_mode_threshold	= 40
 
 tile_key_repeat_delay = 1500
 
@@ -1074,19 +1074,7 @@ end
 ##### Crawl Init file ###############################################
 # For descriptions of all options, as well as some more in-depth information
 # on setting them, consult the file
-#    options_guide.txt
-# in your /docs directory. If you can't find it, the file is also available
-# online at:
 # https://github.com/crawl/crawl/blob/master/crawl-ref/docs/options_guide.txt
-#
-# Crawl uses the first file of the following list as its option file:
-#  * init.txt in the -rcdir directory (if specified)
-#  * .crawlrc in the -rcdir directory (if specified)
-#  * init.txt (in the Crawl directory)
-#  * ~/.crawl/init.txt (Unix only)
-#  * ~/.crawlrc (Unix only)
-#  * ~/init.txt (Unix only)
-#  * settings/init.txt (in the Crawl directory)
 
 ##### Some basic explanation of option syntax #######################
 # Lines beginning with '#' are comments. The basic syntax is:

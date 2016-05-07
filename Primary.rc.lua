@@ -1,4 +1,9 @@
-# if you're playing on CPO, remove these two includes, and un-comment the other two includes
+# This is a fairly-comprehensive Circus Animals rc file.
+# I finally decided to roll my own because the HDA files, while awesome, have a bunch of
+# food-related functions that behave strangely in our fork. Suggestions welcome!
+# Some parts of this were copied from gammafunk and zxc. Thanks, you two!
+
+# if you playing on CPO, remove these two includes, and un-comment the other two includes
   include += RumpyForceMore.rc
   include += RumpyColors.rc
 # include += zxcForceMores.rc
@@ -13,6 +18,7 @@
 # a "warning" at 60 and then you can keep tabbing to death, or at least to 40% hp
   hp_warning 		= 60
   autofight_stop 	= 40
+  danger_mode_threshold	= 30
 
 tile_key_repeat_delay = 1500
 

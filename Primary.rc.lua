@@ -5,6 +5,7 @@ tile_key_repeat_delay = 1200
 bindkey = [;] CMD_AUTOFIGHT_NOMOVE 
 bindkey = [\{-247}] ===one_turn_rest
 bindkey = [.] ===one_turn_rest
+bindkey = [5] ===
 
 flash_screen_message += distortion
 
@@ -16,6 +17,7 @@ explore_wall_bias = 2
 explore_auto_rest = true
 rest_wait_both = true
 rest_wait_percent = 95
+runrest_ignore_poison = 2:10
 runrest_ignore_monster ^= butterfly:1
 runrest_ignore_monster ^= rat:2
 auto_sacrifice = true
@@ -227,19 +229,6 @@ ai += fruit:@e4
 	ai += distortion:!w
   ai += (Sonja|Psyche):!w
 : end
-
-# Body Armour
-ai += fire dragon (armour|hide):rF++, rC-
-ai += gold dragon (armour|hide):rC+, rF+, rPois
-ai += ice dragon (armour|hide):rC++, rF-
-ai += mottled dragon (armour|hide):rSticky
-ai += pearl dragon (armour|hide):rN+
-ai += quicksilver dragon armour:MR+
-ai += shadow dragon (armour|hide):Stlth++++
-ai += steam dragon (armour|hide):rSteam
-ai += storm dragon (armour|hide):rElec
-ai += swamp dragon (armour|hide):rPois
-ai += troll (hide|leather armour):regen
 
 show_god_gift = unident
 

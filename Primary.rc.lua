@@ -36,7 +36,7 @@ messages_at_top = true
 msg_max_height = 14
 msg_min_height = 8
 
-sort_menus = true : charged, >identified, art, qty, basename, qualname, curse
+sort_menus = true : charged, >identified, >equipped, art, qty, basename, qualname, curse
 drop_filter += useless_item
 default_show_all_skills = true
 tile_menu_icons = false
@@ -220,8 +220,6 @@ ai += (curare|dispersal):!f
 
 ai += throwing net:=f
 
-ai += (meat|bread) ration:@e1
-ai += (beef jerk|pizza):@e2
 ai += royal jell:@e3
 ai += fruit:@e4
 
@@ -301,7 +299,8 @@ fake_lang =
     speedrun_rest()
     char_dump()
   end
-} {
+} 
+{
 -----------------------------
 ---- Begin target_skill ----
 -----------------------------
@@ -403,7 +402,8 @@ end
 --------------------------
 ---- End target_skill ----
 --------------------------
-} {
+}
+{
 ----------------------------
 ---- Begin load_message ----
 ----------------------------
@@ -450,7 +450,8 @@ end
 -----------------------------------
 ---- End leave message on save ----
 -----------------------------------
-} {
+}
+{
 -----------------------------
 ---- Begin speedrun_rest ----
 -----------------------------
@@ -1012,7 +1013,8 @@ reset_rest()
 ---------------------------
 ---- End speedrun_rest ----
 ---------------------------
-} {
+}
+{
 -------------------------
 ---- Begin char_dump ----
 -------------------------

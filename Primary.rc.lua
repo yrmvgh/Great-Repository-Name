@@ -26,7 +26,8 @@
 
 tile_key_repeat_delay = 1500
 
-bindkey = [;] CMD_AUTOFIGHT_NOMOVE 
+bindkey = [;] CMD_AUTOFIGHT_NOMOVE
+bindkey = [^m] ===set_target_skill
 # the following bindkeys help with turncount, by attempting to breadswing instead of resting
 # comment them out or delete them if you dont want that behaviour
 bindkey = [.] ===one_turn_rest
@@ -332,18 +333,27 @@ fake_lang =
 #fake_lang = kraut,jagerkin,dwarven
 #fake_lang = jagerkin,dwarven,kraut
 
-## LUA be careful LUA #
+##### LUA be careful LUA #####
 ##https://github.com/gammafunk/dcss-rc/blob/master/README.md###
-## LUA and ready() function ##
-##https://github.com/gammafunk/dcss-rc/blob/master/README.md## 
+##############################
+## Lua and ready() function ##
+##############################
+
+##############################
+## Lua and ready() function ##
+##############################
+
 {
-  function ready()
-    target_skill()
-    load_message()
-    speedrun_rest()
-    char_dump()
-    
-  end
+function ready()
+  -- Enable skill target settings.
+  target_skill()
+  -- Enable speedrun resting.
+  speedrun_rest()
+  -- Enable persistent messages.
+  load_message()
+  -- Char dumps every 1k turns.
+  char_dump()
+end
 }
 {
 -----------------------------

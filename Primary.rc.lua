@@ -27,9 +27,9 @@
 tile_key_repeat_delay = 1500
 
 bindkey = [;] CMD_AUTOFIGHT_NOMOVE
+# the following binds won't work, but they will give you a nice handy error message
+# that you can use as a reminder. If you want to use these functions, make a macro!
 bindkey = [^m] ===set_target_skill
-# the following bindkeys help with turncount, by attempting to breadswing instead of resting
-# comment them out or delete them if you dont want that behaviour
 bindkey = [.] ===one_turn_rest
 bindkey = [5] ===start_resting
 

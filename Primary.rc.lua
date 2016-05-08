@@ -12,6 +12,7 @@
 # include += zxcForceMores.rc
 # include += HDAColors.rc
 
+#automagic will use whatever spell you assign to Q whenever you're in range
   automagic_enable	= true
   automagic_stop 	= 20
   mp_warning 		= 15
@@ -202,6 +203,10 @@ add_autopickup_func(function(it, name)
         end
       end
     elseif (you.skill("Unarmed Combat") < 2) then
+      return true
+    elseif (you.skill("conjurations") < 2) then
+      return true
+    elseif (you.skill("spellcasting") < 3) then
       return true
     end
   end

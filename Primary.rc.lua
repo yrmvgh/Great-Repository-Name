@@ -1,5 +1,8 @@
+# lines that begin with # are comments. if that comment contains code, deleting the #
+# will make the code take effect. All settings can be tweaked, but be careful with LUA
+
 # This is a fairly-comprehensive Circus Animals rc file.
-# I finally decided to roll my own because the HDA files, while awesome, have a bunch of
+# Decided to roll my own because the HDA files, while awesome, have a bunch of
 # food-related functions that behave strangely in our fork. Suggestions welcome!
 # Some parts of this were copied from gammafunk and zxc. Thanks, you two!
 
@@ -324,8 +327,9 @@ fake_lang =
 #fake_lang = kraut,jagerkin,dwarven
 #fake_lang = jagerkin,dwarven,kraut
 
+## LUA be careful LUA #
 ##https://github.com/gammafunk/dcss-rc/blob/master/README.md###
-## Lua and ready() function ##
+## LUA and ready() function ##
 ##https://github.com/gammafunk/dcss-rc/blob/master/README.md## 
 {
   function ready()

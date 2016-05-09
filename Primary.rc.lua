@@ -1,16 +1,30 @@
-# lines that begin with # are comments. if that comment contains code, deleting the #
-# will make the code take effect. All settings can be tweaked, but be careful with LUA
+# text that begins with # is a comment. if a comment contains code,
+# deleting the "#" will make the code take effect. All settings can
+# be tweaked, but be careful about messing with the "LUA" section
 
-# This is a fairly-comprehensive Circus Animals rc file.
-# Decided to roll my own because the HDA files, while awesome, have a bunch of
-# food-related functions that behave strangely in our fork. Suggestions welcome!
-# Some parts of this were copied from gammafunk and zxc. Thanks, you two!
+# This is a fairly-comprehensive Circus Animals rc file. It was created
+# ecause the HDA files, while awesome, have a bunch of food-related
+# functions that behave strangely in our fork. Suggestions welcome!
+# Some code copied from gammafunk and zxc. Thanks, you two!
 
-# if playing on CPO, remove these two includes, and un-comment the other two includes
+# if playing on CPO, delete the following two includes. Use the other two.
   include += RumpyForceMore.rc
   include += RumpyColors.rc
-# include += zxcForceMores.rc
-# include += HDAColors.rc
+## uncomment this line on project357.org ## include += zxcForceMores.rc
+## uncomment this line on project357.org ## include += HDAColors.rc
+
+# removing this will make your skills lower, but allow you to go above 27
+level_27_cap = true
+# going above level 27 is almost "necessary" to do extended in Nightmare
+
+ experience_mode = serenity		# Serenity is selected by default; to 
+#  experience_mode = balance		# change it simply add a # in front of
+#  experience_mode = classic		# that mode, and remove the # from a
+#  experience_mode = simple_xl		# different experience mode. For more
+#  experience_mode = simple_depth	# info, see the relevant code here:
+#  experience_mode = intensity		# http://bit.ly/1NnYWCh
+#  experience_mode = destroyer		#
+###  experience_mode = ask ### DOES NOT WORK YET, UPCOMING FEATURE
 
 #automagic will use whatever spell you assign to Q whenever you're in range
   automagic_enable	= true

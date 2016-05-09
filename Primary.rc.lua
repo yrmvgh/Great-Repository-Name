@@ -13,6 +13,10 @@
 ## uncomment this line on project357.org ## include += zxcForceMores.rc
 ## uncomment this line on project357.org ## include += HDAColors.rc
 
+# removing this will make your skills lower, but allow you to go above 27
+  level_27_cap = true
+# going above level 27 is almost "necessary" to do extended in Nightmare
+
  experience_mode = serenity		# Serenity is selected by default; to 
 #  experience_mode = balance		# change it simply add a # in front of
 #  experience_mode = classic		# that mode, and remove the # from a

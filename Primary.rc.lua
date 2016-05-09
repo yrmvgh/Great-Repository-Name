@@ -205,10 +205,6 @@ add_autopickup_func(function(it, name)
       end
     elseif (you.skill("Unarmed Combat") < 2) then
       return true
-    elseif (you.skill("conjurations") < 2) then
-      return true
-    elseif (you.skill("spellcasting") < 3) then
-      return true
     end
   end
 end)

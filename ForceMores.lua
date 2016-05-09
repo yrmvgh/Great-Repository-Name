@@ -137,7 +137,9 @@ more += You are trampled
 more += You convulse
 more += You feel a (horrible|terrible) chill
 more += You feel haunted
+: if you.race() != "ghoul" then
 more += You feel your flesh.*rot
+: end
 more += You feel your power drain away
 more += You feel your power leaking away
 more += You stumble backwards
@@ -232,7 +234,6 @@ more += seems mollified
 
 # Teleporting
 more += You blink
-more += You.*teleport [^f]
 more += You feel strangely (unstable|stable)
 more += You feel your translocation being delayed
 more += Your surroundings flicker

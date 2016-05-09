@@ -13,10 +13,6 @@
 ## uncomment this line on project357.org ## include += zxcForceMores.rc
 ## uncomment this line on project357.org ## include += HDAColors.rc
 
-# removing this will make your skills lower, but allow you to go above 27
-level_27_cap = true
-# going above level 27 is almost "necessary" to do extended in Nightmare
-
  experience_mode = serenity		# Serenity is selected by default; to 
 #  experience_mode = balance		# change it simply add a # in front of
 #  experience_mode = classic		# that mode, and remove the # from a
@@ -32,8 +28,8 @@ level_27_cap = true
   mp_warning 		= 15
   automagic_slot 	= Q
   autofight_throw	= false
-# the ingenious plan: instead of setting autofight_stop to a high value, lets have
-# a "warning" at 60 and then you can keep tabbing to death, or at least to 40% hp
+# the ingenious plan: instead of setting autofight_stop to a high value, put
+# a "warning" at 60. You can continue tabbing to death or at least to 40% hp  
   hp_warning 		= 60
   autofight_stop 	= 40
   danger_mode_threshold	= 40
@@ -41,8 +37,8 @@ level_27_cap = true
 tile_key_repeat_delay = 1500
 
 bindkey = [;] CMD_AUTOFIGHT_NOMOVE
-# the following binds won't work, but they will give you a nice handy error message
-# that you can use as a reminder. If you want to use these functions, make a macro!
+# the following binds won't work, but they give you a handy error message
+# that serves as a reminder. To use these functions, make a macro in-game!
 bindkey = [^m] ===set_target_skill
 bindkey = [.] ===one_turn_rest
 bindkey = [5] ===start_resting
@@ -65,8 +61,8 @@ runrest_ignore_monster ^= butterfly:1
 runrest_ignore_monster ^= rat:3
 auto_sacrifice 		= true
 show_travel_trail	= true
-message_colour         += mute:you're not good enough to have a special ability
-message_colour 	       += mute:@corpse
+message_colour     += mute:you're not good enough to have a special ability
+message_colour     += mute:@corpse
 
 equip_unequip 		= true
 easy_confirm 		= all
@@ -78,6 +74,9 @@ show_game_turns 	= true
 default_manual_training = true
 view_delay 		= 600
 
+# charged wands and unid'd equipment is shown first, stuff you're already
+# wearing is moved to the end of the list. To customize your own sort order,
+# look at sort_menus in options_guide.txt here: http://bit.ly/1NnZEPN
 sort_menus 		= true : charged, >identified, >equipped, art, qty, basename, qualname, curse
 drop_filter  	       ^= useless, forbidden, dangerous
 default_show_all_skills = true
@@ -343,12 +342,8 @@ fake_lang =
 #fake_lang = kraut,jagerkin,dwarven
 #fake_lang = jagerkin,dwarven,kraut
 
-##### LUA be careful LUA #####
+#### it's LUA! be careful ####
 ##https://github.com/gammafunk/dcss-rc/blob/master/README.md###
-##############################
-## Lua and ready() function ##
-##############################
-
 ##############################
 ## Lua and ready() function ##
 ##############################

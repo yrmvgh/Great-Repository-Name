@@ -39,17 +39,18 @@ menu += $decent:.*artefact.*
 
 # Unidentified Items
 menu += $warning:^unidentified .*(jewellery|potion|scroll|wand).*
-menu += $good:^unidentified .*armour.*(embroidered|dyed|glowing|shiny|runed)
-menu += $good:^unidentified .*weapon.*(glowing|runed)
+menu += white:^unidentified .*armour.*(embroidered|dyed|glowing|shiny|runed)
+menu += white:^unidentified .*weapon.*(glowing|runed)
 
 #################
 # Various Items #
 #################
 
 # Amulets
-menu += $boring:amulet of (inaccuracy|harm)
-menu += $good:amulet of (mana regeneration|guardian spirit|stasis|warding|reflection)
-menu += $positive:amulet of (stamina regeneration|rage|resist corrosion)
+menu += $danger:amulet of harm
+menu += $boring:amulet of inaccuracy
+menu += $good:amulet of (mana regeneration|dismissal|stasis|warding|reflection)
+menu += $positive:amulet of (stamina regeneration|rage|resist corrosion|guardian spirit)
 menu += $verypositive:amulet of (faith|clarity|health regeneration|resist mutation|the gourmand)
 
 # Decks (keep warning as default in case of new decks)
@@ -80,11 +81,11 @@ menu += $mp:crystal ball of energy
 menu += $danger:potions? of berserk
 menu += $decent:potions? of (flight|lignification|restore)
 menu += $good:potions? of (agility|brilliance|invisibility|might|resistance)
-menu += $positive:potions? of curing
+menu += $positive:potions? of (ambrosia|curing)
 menu += $verypositive:potions? of (haste|heal wounds)
-menu += $awesome:potions? of (beneficial|cancellation|cure mutation|experience|gain)
-menu += $mp:potions? of magic
-menu += $mutation:potions? of (weak mutation|mutation)
+menu += $awesome:potions? of (beneficial|cancellation|experience|gain)
+menu += $mp:potions? of (stamina|magic)
+menu += $mutation:potions? of (cure mutation|weak mutation|mutation)
 
 # Rings
 menu += $negative:ring of \-.*(dexterity|evasion|intelligence|protection|slaying|strength)
@@ -92,7 +93,7 @@ menu += $negative:ring of loudness
 menu += $warning:ring of (fire|ice|earth|air)
 menu += $decent:ring of flight
 menu += $good:ring of (.*evasion|invisibility|magical power|.*protection|stealth|sustain abilities|wizardry)
-menu += $positive:ring of (poison resistance|protection from cold|protection from fire|protection from magic|see invisible|corrosion resistance)
+menu += $positive:ring of (poison resistance|protection from cold|protection from fire|protection from magic|see invisible|resist corrosion)
 menu += $verypositive:ring of (regeneration|.*slaying)
 
 # Rods

@@ -3,7 +3,7 @@
 # be tweaked, but be careful about messing with the "LUA" section
 
 # This is a fairly-comprehensive Circus Animals rc file. It was created
-# ecause the HDA files, while awesome, have a bunch of food-related
+# because the HDA files, while awesome, have a bunch of food-related
 # functions that behave strangely in our fork. Suggestions welcome!
 # Some code copied from gammafunk and zxc. Thanks, you two!
 
@@ -17,20 +17,23 @@
   level_27_cap = true
 # going above level 27 is almost "necessary" to do extended in Nightmare
 
- experience_mode = serenity		# Serenity is selected by default; to 
-#  experience_mode = balance		# change it simply add a # in front of
-#  experience_mode = classic		# that mode, and remove the # from a
-#  experience_mode = simple_xl		# different experience mode. For more
-#  experience_mode = simple_depth	# info, see the relevant code here:
-#  experience_mode = intensity		# http://bit.ly/1NnYWCh
-#  experience_mode = destroyer		#
+ experience_mode = serenity		
+#  experience_mode = balance
+#  experience_mode = classic		
+#  experience_mode = simple_xl
+#  experience_mode = simple_depth
+#  experience_mode = intensity		
+#  experience_mode = destroyer		
+# Serenity is selected by default; to change it simply add a # in front of
+# serenity, and remove the # from a different experience mode. For more
+# info, see 
 ###  experience_mode = ask ### DOES NOT WORK YET, UPCOMING FEATURE
 
 #automagic will use whatever spell you assign to Q whenever you're in range
   automagic_enable	= true
   automagic_stop 	= 20
   mp_warning 		= 15
-  automagic_slot 	= Q
+  automagic_slot 	= q
   autofight_throw	= false
 # the ingenious plan: instead of setting autofight_stop to a high value, put
 # a "warning" at 60. You can continue tabbing to death or at least to 40% hp  
@@ -116,6 +119,7 @@ ae += <artefact
 {
 add_autopickup_func(function(it, name)
 
+  if name:find("hide") then return true end
   if name:find("curare") then return true end
   if name:find("dispersal") then return true end
   if name:find("throwing net") then return true end
@@ -243,10 +247,6 @@ ai += [^r]staff of (conj|energy|power|wizardry|Wucad Mu):!a
 ai += dispersal:!f
 ai += throwing net:!f
 
-: if you.god() ~= "Lugonu" then
-ai += (distortion):!w
-:end
-
 ai += of identify:@r1
 ai += remove curse:@r2
 ai += curing:@q1
@@ -273,12 +273,9 @@ ai += (curare|dispersal):!f
 
 ai += throwing net:=f
 
-ai += royal jell:@e3
-ai += fruit:@e4
-
-# Save fruit for abilities under Fedhas
+# Save stampots for abilities under Fedhas
 : if you.god() == "Fedhas" then
-	ai += fruit:!e
+	ai += stamina:!q
 : end
 
 # Inscribe potions of blood if you are a vampire
@@ -488,7 +485,7 @@ end
 
 function save_with_message()
     if you.turns() == 0 then
-        crawl.sendkeys("S")
+	crawl.sendkeys(control("s"))
         return
     end
     crawl.formatted_mpr("Save game and exit?", "prompt")
@@ -523,7 +520,7 @@ end
 -- See README.md for documentation.
 
 -- How many turns to rest at max.
-num_rest_turns = 20
+num_rest_turns = 25
 
 -- If true, look for a foot item inventory slot and use fallback_slot if we
 -- can't find a ration. If false, always use fallback_slot.

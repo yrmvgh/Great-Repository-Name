@@ -13,7 +13,7 @@ $negative := brown
 $danger := lightred
 $warning := yellow
 $boring := darkgrey
-$decent := white
+$decent := lightyellow
 $good := lightblue
 $positive := green
 $verypositive := lightgreen
@@ -47,17 +47,17 @@ menu += $good:^unidentified .*weapon.*(glowing|runed)
 #################
 
 # Amulets
-menu += $boring:amulet of inaccuracy
-menu += $good:amulet of (guardian spirit|stasis|warding)
-menu += $positive:amulet of (faith|rage|resist corrosion)
-menu += $verypositive:amulet of (clarity|regeneration|resist mutation|the gourmand)
+menu += $boring:amulet of (inaccuracy|harm)
+menu += $good:amulet of (mana regeneration|guardian spirit|stasis|warding|reflection)
+menu += $positive:amulet of (stamina regeneration|rage|resist corrosion)
+menu += $verypositive:amulet of (faith|clarity|health regeneration|resist mutation|the gourmand)
 
 # Decks (keep warning as default in case of new decks)
 menu += $evil:deck of punishments
 menu += $warning:deck of (changes|destruction)
 menu += $decent:deck of cards
-menu += $good:deck of war
-menu += $positive:deck of (defence|summoning)
+menu += $good:(ornate|legendary) 
+menu += $positive:deck of (war|defence|summoning)
 menu += $verypositive:deck of escape
 menu += $awesome:deck of wonders
 menu += $warning:deck of 
@@ -72,20 +72,9 @@ menu += $decent:stone of tremors
 menu += $good:fans? of gales
 menu += $good:lamps? of fire
 menu += $good:phials? of floods
-menu += $good:sack of spiders
+menu += $verypositive:sack of spiders
 menu += $positive:phantom mirror
 menu += $mp:crystal ball of energy
-
-# Food
-menu += $evil:evil_eating
-menu += $danger:rot-inducing
-menu += $warning:poisonous
-menu += $boring:inedible
-menu += $good:bread ration
-menu += $good:meat ration
-menu += $good:preferred
-menu += $good:(corpse|chunk)
-menu += $mutation:mutagenic
 
 # Potions
 menu += $danger:potions? of berserk
@@ -95,25 +84,24 @@ menu += $positive:potions? of curing
 menu += $verypositive:potions? of (haste|heal wounds)
 menu += $awesome:potions? of (beneficial|cancellation|cure mutation|experience|gain)
 menu += $mp:potions? of magic
-menu += $mutation:potions? of mutation
+menu += $mutation:potions? of (weak mutation|mutation)
 
 # Rings
 menu += $negative:ring of \-.*(dexterity|evasion|intelligence|protection|slaying|strength)
 menu += $negative:ring of loudness
-menu += $warning:ring of (fire|ice)
+menu += $warning:ring of (fire|ice|earth|air)
 menu += $decent:ring of flight
 menu += $good:ring of (.*evasion|invisibility|magical power|.*protection|stealth|sustain abilities|wizardry)
-menu += $positive:ring of (poison resistance|protection from cold|protection from fire|protection from magic|see invisible)
+menu += $positive:ring of (poison resistance|protection from cold|protection from fire|protection from magic|see invisible|corrosion resistance)
 menu += $verypositive:ring of (regeneration|.*slaying)
-menu += $awesome:ring of teleport
 
 # Rods
 menu += $verypositive:rod
 
 # Scrolls
 menu += $danger:scrolls? of torment
-menu += $boring:scrolls? of (noise|random)
-menu += $decent:scrolls? of (amnesia|holy word|identify|remove curse)
+menu += $boring:scrolls? of (amnesia|noise|random)
+menu += $decent:scrolls? of (holy word|identify|remove curse)
 menu += $good:scrolls? of (fear|fog|immolation|silence|summoning|vulnerability)
 menu += $positive:scrolls? of (brand|enchant|magic mapping|recharging)
 menu += $verypositive:scrolls? of acquirement
@@ -127,7 +115,7 @@ menu += $positive:[^r]staff of
 menu += $boring:wand of (flame|frost|magic darts|random effects)
 menu += $decent:wand of (confusion|enslavement|paralysis|polymorph|slowing)
 menu += $good:wand of (cold|digging|disintegration|draining)
-menu += $good:wand of (fire|fireball|invisibility|lightning)
+menu += $good:wand of (fire|fireball|invisibility|lightning|iceblast|acid)
 menu += $positive:wand of hasting
 menu += $verypositive:wand of heal wounds
 menu += $awesome:wand of teleportation

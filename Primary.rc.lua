@@ -34,21 +34,22 @@
   automagic_stop 	= 20
   mp_warning 		= 15
   automagic_slot 	= q
-  autofight_throw	= false
+# If set to true, resort to melee when automagic_stop is active
+  automagic_fight 	= true
 # the ingenious plan: instead of setting autofight_stop to a high value, put
 # a "warning" at 60. You can continue tabbing to death or at least to 40% hp  
   hp_warning 		= 60
   autofight_stop 	= 40
   danger_mode_threshold	= 40
-
-tile_key_repeat_delay = 1500
+# Do/don't throw stuff when autofighting
+autofight_throw 	= false
+autofight_throw_nomove 	= false
+# If true. items are autofired stopping at the monsters feet (same as firing using .)
+autofight_fire_stop 	= false
 
 bindkey = [;] CMD_AUTOFIGHT_NOMOVE
-# the following binds won't work, but they give you a handy error message
-# that serves as a reminder. To use these functions, make a macro in-game!
-bindkey = [^m] ===set_target_skill
-bindkey = [.] ===one_turn_rest
-bindkey = [5] ===start_resting
+
+tile_key_repeat_delay = 1500
 
 flash_screen_message += distortion
 : if you.race() == "Formicid" then
@@ -63,7 +64,7 @@ explore_wall_bias 	= 2
 explore_auto_rest 	= true
 rest_wait_both 		= true
 rest_wait_percent 	= 96
-runrest_ignore_poison 	= 2:10
+runrest_ignore_poison 	= 5:15
 runrest_ignore_monster ^= butterfly:1
 runrest_ignore_monster ^= rat:3
 auto_sacrifice 		= true
@@ -97,6 +98,9 @@ mp_colour       = 100:green, 75:yellow, 50:red, 25:lightred
 temp_colour	= 100:red, 94:lightred, 86:yellow, 59:brown, 32:darkgrey
 : end
 
+# the following binds won't work, but they give you a handy error message
+# that serves as a reminder. To use these functions, make a macro in-game!
+bindkey = [^m] ===set_target_skill ===one_turn_rest and ===start_resting won't work unless you make macros for them using the ~ key
 fire_order  = launcher, return
 fire_order += tomahawk / javelin / stone / rock / net
 
@@ -231,6 +235,26 @@ add_autopickup_func(function(it, name)
 end)
 }
 
+################
+# Auto Exclude #
+################
+
+## dangerous monsters ##
+auto_exclude += ancient lich, death drake, hydra, oklob, statue, jelly, orb of fire
+auto_exclude += emperor, spark wasp, howler,hyperactive
+
+## paralysing monsters and uniques ##
+auto_exclude += [^c] wizard, ancient lich, Ereshkigal, Erolcha, eyeball, Grinder, Jory, lich
+auto_exclude += Norris, ogre-mage, orb of eyes, orc sorcerer, Rupert, sphinx, vampire knight
+
+## other uniques and unique followers ##
+auto_exclude += Agnes, Aizul, Arachne, Asterion, Blork, Boris, Crazy Yiuf, Donald, Dowan
+auto_exclude += Duvessa, Edmund, Erica, Eustachio, Fannar, Frances, Frederick, Gastronok
+auto_exclude += Grum, Harold, Ijyb, Jessica, Jorgrun, Joseph, Kirke, Louise, Mara, Maud
+auto_exclude += Maurice, Menkaure, Mennas, Natasha, Nergalle, Nessos, Nikola, Pikel
+auto_exclude += Polyphemus, Prince Ribbit, Psyche, Roxanne, Saint Roka, Sigmund, Snorg
+auto_exclude += Sojobo, Sonja, Terence, Urug, Wiglaf, Xtahua, hog, slave
+
 ####################
 # Autoinscriptions #
 ####################
@@ -296,12 +320,12 @@ show_god_gift = unident
 #########
 
 dump_item_origins = all
-dump_message_count = 50
+dump_message_count = 75
 dump_book_spells = false
 dump_order =
 dump_order += header,hiscore,stats,misc,mutations,skills,spells,overview
-dump_order += inventory,screenshot,monlist,messages
-dump_order += vaults,kills,turns_by_place,kills_by_place,notes,action_counts
+dump_order += inventory,action_counts,screenshot,messages
+dump_order += kills,monlist,turns_by_place,kills_by_place,notes,vaults
 ood_interesting = 6
 note_hp_percent = 25
 note_all_skill_levels = true
@@ -310,7 +334,6 @@ note_messages += You pass through the gate
 note_messages += cast .* Abyss
 note_messages += Your scales start
 note_monsters += lich,ancient lich,curse skull,greater mummy
-note_monsters += tengu reaver,storm dragon,titan
 note_monsters += octopode crusher,juggernaut,caustic shrike
 note_monsters += killer klown,electric golem,death cob,curse toe,orb of fire
 
@@ -1152,19 +1175,9 @@ end
 # Turn the shift-vi keys into safe move, instead of run.
 # include = safe_move_shift.txt
 
-##### Ancient versions ##############################################
-# If you're used to the interface of ancient versions of Crawl, you may
-# get back parts of it by uncommenting the following options:
-
-# include                 = 034_command_keys.txt
-
-# And to revert monster glyph and colouring changes:
-
-# include                 = 034_monster_glyphs.txt
-# include                 = 052_monster_glyphs.txt
-# include                 = 060_monster_glyphs.txt
-# include                 = 071_monster_glyphs.txt
-# include                 = 080_monster_glyphs.txt
-# include                 = 0.9_monster_glyphs.txt
-# include                 = 0.12_monster_glyphs.txt
-# include                 = 0.13_monster_glyphs.txt
+##### Misc stuff for testing #####
+#### don't know what these do ####
+msg_min_height=7
+msg_max_height=10
+show_more = false
+small_more = true
